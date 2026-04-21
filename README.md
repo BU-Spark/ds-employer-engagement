@@ -530,14 +530,13 @@ The project uses three main datasets sourced from BU Handshake data between Spri
 
 **Intermediate / derived outputs**
 
-* `ep_joined.csv` — Milestone 1 output; joined employer × event × job dataset (left joins preserve full employer base).
-* `employer_kpi.csv` — Milestone 2 output; master employer-level KPI table (JAY, Event Score, EAY, EEB, EEC, ACI, SSI, EEIS, plus segmentation labels).
-* `ep_outcomes.csv` — Milestone 3 output; `ep_joined` enriched with aggregated FDS outcomes per employer.
-* `outcomes.csv` — aggregated FDS outcomes used by the joint analysis notebook.
-
+* **`ep_joined.csv`** - 'https://drive.google.com/file/d/1V7vOYtU-0DNX9hdK-m_pPGBGO_tVwEey/view?usp=drive_link'
+  — Milestone 1 output; joined employer × event × job dataset (left joins preserve full employer base).
+* **`ep_event_cleaned.csv`** - 'https://drive.google.com/file/d/1HJu1S2euo4HJPzd8sCGlxKacwbcacO9K/view?usp=sharing'
+  — Milestone 1 output; cleaned employer event data (deduplicated, attendee count numeric, dates reformatted).
+* **`ep_job_cleaned.csv`** - 'https://drive.google.com/file/d/1O5CPqhezYzIYzuRg6MrAWuUB5j78O-IF/view?usp=sharing'
+  — Milestone 1 output; cleaned employer job posting data (deduplicated, salary converted to float, dates reformatted).
+* **`ep_base_cleaned.csv`** - 'https://drive.google.com/file/d/1ehgIkF8SAIuLZpWuEWGInh4NFemXAZT2/view?usp=sharing'
+  — Milestone 1 output; cleaned employer base (deduplicated, `employer_size` split into min/max, dates reformatted, employer type renamed).
 
 <a href="dataset-documentation">Dataset Documentation</a>
-* Location 1: [location]
-  - [description]
-* Location 2: [location]
-  - [description]
