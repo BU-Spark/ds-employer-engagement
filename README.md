@@ -3,18 +3,22 @@
   <br>
   <a href="https://www.bu.edu/spark/" target="_blank"><img src="https://www.bu.edu/spark/files/2023/08/logo.png" alt="BUSpark" width="200"></a>
   <br>
-  Project README Template <change to project name>
+  Center for Career Development: Employer Engagement Analysis
   <br>
 </h1>
 
-<h4 align="center">A template for the project readme file. </h4> <change to repo short description>
+<h4 align="center">Analyzing five years of BU Handshake data (Spring 2020 – Summer 2025) to understand employer engagement, student activity, and hiring outcomes for the BU Center for Career Development.</h4>
 
 <p align="center">
+  <a href="#project-goals-structure--outputs">Goals, Structure & Outputs</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#project-description">Project Description</a> •
+  <a href="#dashboard">Dashboard</a> •
+  <a href="#handoff-notes-for-the-next-team">Handoff Notes</a> •
+  <a href="#methodology">Methodology</a> •
   <a href="#data-locations">Data Locations</a>
 </p>
+
 
 ## Key Features
 
@@ -539,4 +543,3 @@ The project uses three main datasets sourced from BU Handshake data between Spri
 * **`ep_base_cleaned.csv`** - 'https://drive.google.com/file/d/1ehgIkF8SAIuLZpWuEWGInh4NFemXAZT2/view?usp=sharing'
   — Milestone 1 output; cleaned employer base (deduplicated, `employer_size` split into min/max, dates reformatted, employer type renamed).
 
-<a href="dataset-documentation">Dataset Documentation</a>
