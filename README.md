@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <br>
   <a href="https://www.bu.edu/spark/" target="_blank"><img src="https://www.bu.edu/spark/files/2023/08/logo.png" alt="BUSpark" width="200"></a>
@@ -10,21 +9,19 @@
 <h4 align="center">Analyzing five years of BU Handshake data (Spring 2020 – Summer 2025) to understand employer engagement, student activity, and hiring outcomes for the BU Center for Career Development.</h4>
 
 <p align="center">
-  <a href="#project-goals-structure--outputs">Goals, Structure & Outputs</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#dashboard">Dashboard</a> •
+  <a href="#project-description">Project Description</a> •
   <a href="#handoff-notes-for-the-next-team">Handoff Notes</a> •
   <a href="#methodology">Methodology</a> •
   <a href="#data-locations">Data Locations</a>
 </p>
 
-
 ## Key Features
 
 The analysis pipeline is organized as a series of Jupyter notebooks. Each notebook builds on the outputs of the previous one.
 
-* **`milestone_1_clean&join_v2.ipynb`** — data cleaning and joinings
+* **`milestone_1_clean&join_v2.ipynb`** — data cleaning and joining
   - Cleans and standardizes the Employer, Event, and Job datasets from Handshake
   - Defines the schema and produces a joined dataset keyed on `employer_id`
 * **`milestone_1_cleaned_EDA_v3.ipynb`** — additional cleaning and exploratory data analysis
@@ -38,15 +35,15 @@ The analysis pipeline is organized as a series of Jupyter notebooks. Each notebo
   - Produces `ep_outcomes.csv`, the joint employer + outcomes dataset
 
 See the [Methodology](#methodology) section for detailed per-notebook documentation.
- 
+
 ## How To Use
 
-To clone and run this application, you'll need <a href="https://git-scm.com" target="_blank">Git</a>
-From your command line:
+To clone and run this application, you'll need <a href="https://git-scm.com" target="_blank">Git</a>. From your command line:
 
 ```bash
 # Clone this repository
 $ git clone [repo link]
+```
 
 **Run the notebooks in milestone order — always.** Each milestone consumes the previous milestone's CSV output:
 
@@ -57,11 +54,7 @@ ms2_employer_analysis_v3.ipynb    →  employer_kpi.csv        (use v3, not v2)
 ms3_outcome_analysis_v1.ipynb     →  ep_outcomes.csv
 ```
 
-
-
-Create a new branch from dev, add changes on the new branch you just created.
-
-You will want to look into <a href="https://git-scm.com/docs/git-branch" target="_blank">git branch</a> and <a href="https://git-scm.com/docs/git-checkout" target="_blank">git checkout</a>
+Create a new branch from `dev`, add changes on the new branch you just created. You will want to look into <a href="https://git-scm.com/docs/git-branch" target="_blank">git branch</a> and <a href="https://git-scm.com/docs/git-checkout" target="_blank">git checkout</a>.
 
 ```bash
 # Create and Checkout a new branch if it doesn't exist
@@ -69,7 +62,6 @@ $ git checkout -b your-branch main
 ...
 ```
 
- 
 ## Project Description
 
 **Client:** Boston University Center for Career Development (CCD)
@@ -117,12 +109,13 @@ The **Employer Engagement Analysis Project** aims to help the CCD better underst
 * **Python** — data cleaning, exploratory analysis, and modeling (`pandas`, `numpy`, `matplotlib`, `seaborn`)
 * **Power BI** — interactive dashboard (Windows only via BU access)
 
+## Handoff Notes for the Next Team
 
-### What the repo consists of
+### What the Repo Consists Of
 
 The repo is **notebook-first**: there is no packaged library, CLI, or pipeline runner. Each milestone is a standalone Jupyter notebook that reads CSVs and writes CSVs. See [Repo Structure](#repo-structure) above for the file map and [Key Outputs](#key-outputs) for the data flow.
 
-### Next tasks (For Future Teams)
+### Next Tasks (For Future Teams)
 
 Two concrete, high-priority handoff items:
 
@@ -131,16 +124,12 @@ Two concrete, high-priority handoff items:
 
 Beyond those two, longer-running follow-ups that come out of our documented data gaps: resolving the salary unit ambiguity, strengthening the Handshake ↔ FDS employer name matching (currently substring-based), and adding a structured industry/job-type classification to the raw data.
 
-
-### Things to watch out for
+### Things to Watch Out For
 
 * **Don't use the raw joined dataset for counting.** `ep_joined.csv` is the full `employer × event × job` cross-product, so any `count()` over it double-counts. Always deduplicate on `events_id` / `jobs_id` before aggregating — this is why Milestone 2 section 9.1 recomputes event counts with `.nunique()`.
 * **Treat salary fields as exploratory.** Units are inconsistent (hourly vs. annual vs. stipend), there are many zeros and placeholder `999999` values. SSI is included in the KPI table but should not be used as a primary ranking metric.
 * **`ms2_employer_analysis_v3.ipynb` supersedes `v2`.** `v2` is kept in the repo for history; `v3` is the current version.
 * **2025 data is a partial year.** Be careful with year-over-year trends that compare 2025 to full prior years.
-
-
-
 
 ## Methodology
 
@@ -199,7 +188,7 @@ Beyond those two, longer-running follow-ups that come out of our documented data
 2. Left join `ep_job` onto `ep_base_event`
    * If an employer has 5 jobs, each employer-event row is duplicated 5 times
 
-#### Additional Cleaning & Prep 
+#### Additional Cleaning & Prep
 
 * Create year fields from date columns
 * Convert `applications_count` and `student_attendees_count` to numeric
@@ -487,7 +476,7 @@ Imports `os`, `pandas`, `numpy`, `matplotlib.pyplot`, `seaborn`. Loads:
 * `ep_joined.csv` — job postings, employer engagement, and event activity
 * `outcomes.csv` — student post-graduation outcomes
 
-#### 2. Preparing and Merging Datasets (creating `ep_outcomes.csv`)
+#### 2. Preparing and Merging Datasets (Creating `ep_outcomes.csv`)
 
 **2.1 Cleaning Employer Name Fields** — lowercase, strip whitespace, store cleaned versions in `employer_name_clean` to prevent mismatches from capitalization or spacing.
 
@@ -523,23 +512,22 @@ The project uses three main datasets sourced from BU Handshake data between Spri
 
 **Raw inputs**
 
-* **Employer base** — `https://drive.google.com/file/d/1cMYPqEBhehpngt3jGi3NjSvoUf-2eNmB/view?usp=drive_link`
+* **Employer base** — [link](https://drive.google.com/file/d/1cMYPqEBhehpngt3jGi3NjSvoUf-2eNmB/view?usp=drive_link)
   - Master list of organizations and employer attributes; cleaned to `ep_base_cleaned.csv`.
-* **Employer events** — `https://drive.google.com/file/d/1deIBV-F40g3MKjLvFJfbjb9j67GBQHa_/view?usp=drive_link`
+* **Employer events** — [link](https://drive.google.com/file/d/1deIBV-F40g3MKjLvFJfbjb9j67GBQHa_/view?usp=drive_link)
   - Career events and student attendance records.
-* **Employer jobs** — `https://drive.google.com/file/d/1MwtrH_E3BTs_-3ZYJR96oiR0OVfnLwGD/view?usp=drive_link`
+* **Employer jobs** — [link](https://drive.google.com/file/d/1MwtrH_E3BTs_-3ZYJR96oiR0OVfnLwGD/view?usp=drive_link)
   - Job postings and application counts.
-* **FDS 2020–2024 Employer Outcomes (Anonymized).xlsx** — `https://docs.google.com/spreadsheets/d/1d7kVvOUcr7ts809rlSvwCnJagX28I9jT/edit?usp=drive_link&ouid=115187330912941517955&rtpof=true&sd=true`
+* **FDS 2020–2024 Employer Outcomes (Anonymized).xlsx** — [link](https://docs.google.com/spreadsheets/d/1d7kVvOUcr7ts809rlSvwCnJagX28I9jT/edit?usp=drive_link&ouid=115187330912941517955&rtpof=true&sd=true)
   - Student post-graduation outcomes: employment, demographics, industries, job functions.
 
 **Intermediate / derived outputs**
 
-* **`ep_joined.csv`** - 'https://drive.google.com/file/d/1V7vOYtU-0DNX9hdK-m_pPGBGO_tVwEey/view?usp=drive_link'
-  — Milestone 1 output; joined employer × event × job dataset (left joins preserve full employer base).
-* **`ep_event_cleaned.csv`** - 'https://drive.google.com/file/d/1HJu1S2euo4HJPzd8sCGlxKacwbcacO9K/view?usp=sharing'
-  — Milestone 1 output; cleaned employer event data (deduplicated, attendee count numeric, dates reformatted).
-* **`ep_job_cleaned.csv`** - 'https://drive.google.com/file/d/1O5CPqhezYzIYzuRg6MrAWuUB5j78O-IF/view?usp=sharing'
-  — Milestone 1 output; cleaned employer job posting data (deduplicated, salary converted to float, dates reformatted).
-* **`ep_base_cleaned.csv`** - 'https://drive.google.com/file/d/1ehgIkF8SAIuLZpWuEWGInh4NFemXAZT2/view?usp=sharing'
-  — Milestone 1 output; cleaned employer base (deduplicated, `employer_size` split into min/max, dates reformatted, employer type renamed).
-
+* **`ep_joined.csv`** — [link](https://drive.google.com/file/d/1V7vOYtU-0DNX9hdK-m_pPGBGO_tVwEey/view?usp=drive_link)
+  - Milestone 1 output; joined employer × event × job dataset (left joins preserve full employer base).
+* **`ep_event_cleaned.csv`** — [link](https://drive.google.com/file/d/1HJu1S2euo4HJPzd8sCGlxKacwbcacO9K/view?usp=sharing)
+  - Milestone 1 output; cleaned employer event data (deduplicated, attendee count numeric, dates reformatted).
+* **`ep_job_cleaned.csv`** — [link](https://drive.google.com/file/d/1O5CPqhezYzIYzuRg6MrAWuUB5j78O-IF/view?usp=sharing)
+  - Milestone 1 output; cleaned employer job posting data (deduplicated, salary converted to float, dates reformatted).
+* **`ep_base_cleaned.csv`** — [link](https://drive.google.com/file/d/1ehgIkF8SAIuLZpWuEWGInh4NFemXAZT2/view?usp=sharing)
+  - Milestone 1 output; cleaned employer base (deduplicated, `employer_size` split into min/max, dates reformatted, employer type renamed).
