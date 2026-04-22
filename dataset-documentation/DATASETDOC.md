@@ -159,4 +159,8 @@ This missing information is largely due to incomplete reporting on the Handshake
 *Other*
 
 * Is there any other additional information that you would like to provide that has not already been covered in other sections?
-  *  No
+  *  Client Presentations:
+    *  02/13/26 - https://docs.google.com/presentation/d/10k0fFvo5wFQ5EvK54zHYXyvgHBStLxZwTEnwi0PtzUE/edit?usp=drive_link
+    *  02/26/26 - https://docs.google.com/presentation/d/1uIduTXncNWuAJx_4g0tC5JZracj8xgWXkfopk1lhNr4/edit?usp=drive_link
+    *  03/27/26 - https://docs.google.com/presentation/d/1l7wM7rExXAuA_XCFa9oLvpJTB9gN4qZuyc_m6Yk9wU4/edit?usp=drive_link
+    *  04/03/26 - https://docs.google.com/presentation/d/1AYbfL-rEBtGW4My0nEtLZ7L5RrFMbkPut_k7Xl9gtoA/edit?usp=drive_link
